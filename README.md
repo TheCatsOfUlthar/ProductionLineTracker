@@ -73,5 +73,5 @@ In addition to the ability to record production, the software also needs the abi
             2. Future potential employers
             3. Professor
             
-    * Timelines (a breakdown of the Product Backlog into time-bound smaller, more detailed tasks in Sprint Backlogs)
+    VII. Timelines (a breakdown of the Product Backlog into time-bound smaller, more detailed tasks in Sprint Backlogs)
         1. Three 5-week sprints, detailed below.
