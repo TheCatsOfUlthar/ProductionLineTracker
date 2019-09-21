@@ -64,8 +64,8 @@ In addition to the ability to record production, the software also needs the abi
             2. CTO 
             3. CIO 
             4. users 
-                1. production facility workers 
-                2. inventory managers
+                a. production facility workers 
+                b. inventory managers
             5. customers 
             6. I.T. support
         * Actual / For class
