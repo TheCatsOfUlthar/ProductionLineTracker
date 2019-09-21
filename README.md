@@ -11,7 +11,6 @@ Management would like the production tracking to be more automated so the worker
 In addition to the ability to record production, the software also needs the ability to add to the product line (the catalog of products that are able to be produced).
 
     * Goals (high level intended outcomes; for software, a Product Backlog)
-    
         * Hypothetical / Real world
             1. Allow a user to add new products that are able to be produced and store them in a collection.
             2. The collection of products that can be produced can be displayed at any time.
@@ -20,7 +19,6 @@ In addition to the ability to record production, the software also needs the abi
             5. Production statistics can be displayed – Total items produced, number of each item type, the number of unique products created etc.
             6. Employee accounts can be made.
             7. Allow easy modification to handle different products.
-            
         * Actual / For class
             1. Solidify understanding of object oriented programming. 
             2. Practice Java.
@@ -28,49 +26,51 @@ In addition to the ability to record production, the software also needs the abi
             4. Learn basic database programming. 
             
     * Boundaries / Scope (where the functions and responsibilities of the solution start and end / what it should do and what is left to other systems to do)
-    
         * Hypothetical / Real world
             1. For this particular production facility you will only need to track music and movie players.
             2. The program does not need the ability to place or fulfill orders / reduce stock, just track production.
     * Success criteria (set of conditions to be satisfied at completion; must be measurable and verifiable, like a test)
         * Hypothetical / Real world
             1. Pass tests (in repl.it)
-            2. Follow rules for documentation, style, and coding conventions
-            
+            2. Follow rules for documentation, style, and coding conventions 
         * Actual / For class
             * Grading forms / rubrics (in Canvas)
                 1. Documentation (see below)
                 2. Style (see below)
                 3. Quality (see below)
                 4. Assignment Specifications - include full project in your repository so your program can be easily imported and run.
-            5. Creation of artifact for portfolio 
-    Constraints (externally imposed limitations on system requirements, design, or implementation or on the process used to develop or modify a system)
-        Hypothetical / Real world
-            The program will be a GUI database program written in Java. 
-            The program must be flexible to allow for future expansion. 
-            Code should be saved to a private GitHub repository. 
-            Follow best practices for style, documentation, and quality. 
-        Actual / For class
-            Communication and collaboration with classmates is allowed but should not extend to sharing actual code.
-    Assumptions (things that are accepted as true or as certain to happen, without proof)
-        You like to program.
-        You have foundational knowledge of programming from prerequisite courses. 
-        You will spend at least 4 hours per week on the project. 
-        The project should not require more than 7 hours per week. If so, contact the professor for assistance. 
-        This will help you be successful in future classes and your career.
-    Stakeholders (individuals or organizations having a right, share, claim, or interest in a system or in its possession of characteristics that meet their needs and expectations )
-        Hypothetical / Real world
-            CEO 
-            CTO 
-            CIO 
-            users 
-                production facility workers 
-                inventory managers
-            customers 
-            I.T. support
-        Actual / For class
-            Yourself
-            Future potential employers
-            Professor
-    Timelines (a breakdown of the Product Backlog into time-bound smaller, more detailed tasks in Sprint Backlogs)
-        Three 5-week sprints, detailed below.
+                5. Creation of artifact for portfolio 
+            
+    * Constraints (externally imposed limitations on system requirements, design, or implementation or on the process used to develop or modify a system)
+        * Hypothetical / Real world
+            1. The program will be a GUI database program written in Java. 
+            2. The program must be flexible to allow for future expansion. 
+            3. Code should be saved to a private GitHub repository. 
+            4. Follow best practices for style, documentation, and quality. 
+        * Actual / For class
+            1. Communication and collaboration with classmates is allowed but should not extend to sharing actual code.
+            
+    * Assumptions (things that are accepted as true or as certain to happen, without proof)
+        1. You like to program.
+        2. You have foundational knowledge of programming from prerequisite courses. 
+        3. You will spend at least 4 hours per week on the project. 
+        4. The project should not require more than 7 hours per week. If so, contact the professor for assistance. 
+        5. This will help you be successful in future classes and your career.
+        
+    * Stakeholders (individuals or organizations having a right, share, claim, or interest in a system or in its possession of characteristics that meet their needs and expectations )
+        * Hypothetical / Real world
+            1. CEO 
+            2. CTO 
+            3. CIO 
+            4. users 
+                * production facility workers 
+                * inventory managers
+            5. customers 
+            6. I.T. support
+        * Actual / For class
+            1. Yourself
+            2. Future potential employers
+            3. Professor
+            
+    * Timelines (a breakdown of the Product Backlog into time-bound smaller, more detailed tasks in Sprint Backlogs)
+        1. Three 5-week sprints, detailed below.
