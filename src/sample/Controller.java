@@ -60,8 +60,7 @@ public class Controller {
     String productManufacturer = this.productManufacturer.getText();
     String productType = this.productTypeBox.getValue();
 
-    Product item = new Product(null, null) {
-    };
+    Product item = new Product(null, null) {};
     item.setName(productName);
     item.setType(productType);
     item.setManufacturer(productManufacturer);
