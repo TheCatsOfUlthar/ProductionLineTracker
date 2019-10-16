@@ -17,6 +17,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -36,10 +38,10 @@ public class Controller {
   // fx:id's for my Controls under the Product Line tab.
   @FXML private TextField productName;
   @FXML private TextField productManufacturer;
-  @FXML private ChoiceBox<String> productTypeBox = new ChoiceBox<>();
+  @FXML private ChoiceBox<String> productTypeBox;
 
   // fx:id for my Control under the Produce tab.
-  @FXML private ComboBox<Integer> chooseQuantityBox = new ComboBox<>();
+  @FXML private ComboBox<Integer> chooseQuantityBox;
 
   /**
    * When the Add Product Button is pressed, this method gets the information supplied in the text
@@ -53,39 +55,49 @@ public class Controller {
     This is how I receive the information that the user enters into both text fields and
     the choice box under Product Line.
      */
+
     String productName = this.productName.getText();
     String productManufacturer = this.productManufacturer.getText();
     String productType = this.productTypeBox.getValue();
 
-    // Here I am making sure that the user information entered wasn't empty.
-    if (productName.isEmpty() || productManufacturer.isEmpty()) {
-      System.out.println("You entered nothing. Try again.");
-      // If the input was correct, the data is concatenated into a SQL String Command.
-    } else {
-      String myString =
-          "INSERT INTO Product(NAME, TYPE, MANUFACTURER) VALUES  "
-              + "('"
-              + productName
-              + "', '"
-              + productType
-              + "', '"
-              + productManufacturer
-              + "')";
-      // Here I am initializing my DataBase.
-      try {
-        Class.forName(JDBC_DRIVER); // Database Driver
-        Connection conn = DriverManager.getConnection(DB_URL); // Database Url
-        // This prepared statement executes my SQL String Command.
-        PreparedStatement stmt = conn.prepareStatement(myString);
-        stmt.execute();
-        conn.close();
-        stmt.close();
+    Product item = new Product(null, null) {
+    };
+    item.setName(productName);
+    item.setType(productType);
+    item.setManufacturer(productManufacturer);
 
-      } catch (ClassNotFoundException | SQLException e) {
-        e.printStackTrace();
-      }
+    ArrayList<Product> productLine = new ArrayList<>();
+    productLine.add(item);
+
+    // Here I am making sure that the user information entered wasn't empty.
+    // if (productName.isEmpty() || productManufacturer.isEmpty()) {
+    // System.out.println("You entered nothing. Try again.");
+    // If the input was correct, the data is concatenated into a SQL String Command.
+    // } else {
+    String myString =
+        "INSERT INTO Product(NAME, TYPE, MANUFACTURER) VALUES  "
+            + "('"
+            + item.getName()
+            + "', '"
+            + item.getType()
+            + "', '"
+            + item.getManufacturer()
+            + "')";
+    // Here I am initializing my DataBase.
+    try {
+      Class.forName(JDBC_DRIVER); // Database Driver
+      Connection conn = DriverManager.getConnection(DB_URL); // Database Url
+      // This prepared statement executes my SQL String Command.
+      PreparedStatement stmt = conn.prepareStatement(myString);
+      stmt.execute();
+      conn.close();
+      stmt.close();
+
+    } catch (ClassNotFoundException | SQLException e) {
+      e.printStackTrace();
     }
   }
+  // }
 
   /** This method handles events for the Record Production Button. */
   @FXML
@@ -97,10 +109,16 @@ public class Controller {
   @FXML
   private void initialize() {
     // Choice box control.
-    productTypeBox.setValue(
-        "Audio"); // The .setValue method determines which choice box option is initially displayed.
-    productTypeBox.getItems().addAll("Audio", "Video"); // Here I am adding items to the choice box.
-    // Combo box control.
+    // The .setValue method determines which choice box option is initially displayed.
+
+    for (ItemType items : ItemType.values()) {
+      productTypeBox
+          .getItems()
+          .addAll(items.getType()); // Here I am adding items to the choice box.
+      // Combo box control.
+    }
+
+    productTypeBox.setValue("Audio");
     chooseQuantityBox
         .getItems()
         .addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // The numbers in my combo box.
