@@ -6,7 +6,7 @@
  * @version 1.2 Saturday, November 2nd, 2019
  */
 
-package sample;
+package PLT;
 
 /** The type Movie player. */
 public class MoviePlayer extends Product implements MultimediaControl {

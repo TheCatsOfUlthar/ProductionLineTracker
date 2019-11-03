@@ -11,7 +11,7 @@
  * @version 1.0 Saturday, September 21st, 2019
  */
 
-package sample;
+package PLT;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

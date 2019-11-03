@@ -6,7 +6,7 @@
  * @version 1.1 Saturday, September 28th, 2019
  */
 
-package sample;
+package PLT;
 
 /** The interface Item. */
 interface Item {

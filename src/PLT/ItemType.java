@@ -8,7 +8,7 @@
  * @version 1.1 Saturday, September 28th, 2019
  */
 
-package sample;
+package PLT;
 
 /** The enum Item type. These constants have two variables, type and code. */
 public enum

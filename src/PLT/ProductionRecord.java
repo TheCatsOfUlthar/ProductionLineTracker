@@ -7,7 +7,7 @@
  * @version 1.2 Saturday, November 2nd, 2019
  */
 
-package sample;
+package PLT;
 
 import java.util.Date;
 
