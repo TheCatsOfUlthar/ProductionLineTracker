@@ -7,13 +7,18 @@
 
 package sample;
 
+/** The interface Multimedia control. */
 interface MultimediaControl {
 
+  /** Play. */
   void play();
 
+  /** Stop. */
   void stop();
 
+  /** Previous. */
   void previous();
 
+  /** Next. */
   void next();
 }

@@ -46,7 +46,17 @@ interface Item {
    */
   String getManufacturer();
 
+  /**
+   * Sets type.
+   *
+   * @param setType the set type
+   */
   void setType(ItemType setType);
 
+  /**
+   * Gets type.
+   *
+   * @return the type
+   */
   ItemType getType();
 }

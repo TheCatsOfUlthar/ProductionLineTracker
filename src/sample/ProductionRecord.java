@@ -11,6 +11,7 @@ package sample;
 
 import java.util.Date;
 
+/** The type Production record. */
 class ProductionRecord {
 
   private int productionNumber;
@@ -18,12 +19,20 @@ class ProductionRecord {
   private String serialNumber;
   private final Date dateProduced;
 
+  /** Instantiates a new Production record. */
   ProductionRecord() {
     this.productionNumber = 0;
     this.serialNumber = "0";
     dateProduced = new Date();
   }
 
+  /**
+   * Instantiates a new Production record.
+   *
+   * @param productionNumber the production number
+   * @param productID the product id
+   * @param serialNumber the serial number
+   */
   ProductionRecord(int productionNumber, int productID, String serialNumber) {
     this.productionNumber = productionNumber;
     this.productID = productID;
@@ -31,6 +40,12 @@ class ProductionRecord {
     this.dateProduced = new Date(getDateProduced().getTime());
   }
 
+  /**
+   * Instantiates a new Production record.
+   *
+   * @param product the product
+   * @param itemCount the item count
+   */
   ProductionRecord(Product product, int itemCount) {
     setSerialNumber(
         product.getManufacturer().substring(0, 3)
@@ -51,22 +66,47 @@ class ProductionRecord {
         + dateProduced;
   }
 
+  /**
+   * Gets production number.
+   *
+   * @return the production number
+   */
   public int getProductionNumber() {
     return productionNumber;
   }
 
+  /**
+   * Sets production number.
+   *
+   * @param productionNumber the production number
+   */
   public void setProductionNumber(int productionNumber) {
     this.productionNumber = productionNumber;
   }
 
+  /**
+   * Gets product id.
+   *
+   * @return the product id
+   */
   public int getProductID() {
     return productID;
   }
 
+  /**
+   * Sets product id.
+   *
+   * @param productID the product id
+   */
   public void setProductID(int productID) {
     this.productID = productID;
   }
 
+  /**
+   * Gets serial number.
+   *
+   * @return the serial number
+   */
   public String getSerialNumber() {
     return serialNumber;
   }

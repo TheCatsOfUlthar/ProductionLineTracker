@@ -1,11 +1,11 @@
 .root {
-    -fx-body-color : #F5F5F5;
-    -fx-outer-border : #cecece;
+    -fx-body-color: #F5F5F5;
+    -fx-outer-border: #cecece;
     -fx-border-color: #99ccff;
     -fx-background-color: #ccccff;
 }
 
-.button,.menu-button,.toggle-button,.split-menu-button {
+.button, .menu-button, .toggle-button, .split-menu-button {
     -fx-font-size: 14;
     -fx-background-radius: 4;
     -fx-border-radius: 4;

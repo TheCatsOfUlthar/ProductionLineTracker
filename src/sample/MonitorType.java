@@ -8,7 +8,10 @@
 
 package sample;
 
+/** The enum Monitor type. */
 public enum MonitorType {
-
-    LCD, LED
+  /** Lcd monitor type. */
+  LCD,
+  /** Led monitor type. */
+  LED
 }

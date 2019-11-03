@@ -22,7 +22,14 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -35,7 +42,9 @@ public class Controller {
 
   private static final String JDBC_DRIVER = "org.h2.Driver"; // Path to my H2 Driver
   private static final String DB_URL = "jdbc:h2:./res/H2"; // Path to my DataBase URL
+  /** The Tabpane. */
   public TabPane tabpane;
+
   private final List<Product> list = new ArrayList<>();
   private final ObservableList<Product> data = FXCollections.observableArrayList(list);
 
@@ -51,6 +60,7 @@ public class Controller {
   @FXML private TableColumn<?, ?> column3 = new TableColumn<>("Type");
   @FXML private ComboBox<Integer> chooseQuantityBox;
 
+  /** Add product button. */
   // Needs to store product to database
   @FXML
   public void addProductButton() {

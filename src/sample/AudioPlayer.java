@@ -8,11 +8,21 @@
 
 package sample;
 
+/** The type Audio player. */
 public class AudioPlayer extends Product implements MultimediaControl {
 
   private String audioSpecification;
   private String mediaType;
 
+  /**
+   * Instantiates a new Audio player.
+   *
+   * @param name the name
+   * @param manufacturer the manufacturer
+   * @param type the type
+   * @param audioSpecification the audio specification
+   * @param mediaType the media type
+   */
   AudioPlayer(
       String name,
       String manufacturer,
@@ -29,6 +39,11 @@ public class AudioPlayer extends Product implements MultimediaControl {
     this.audioSpecification = audioSpecification;
   }
 
+  /**
+   * Gets audio specification.
+   *
+   * @return the audio specification
+   */
   public String getAudioSpecification() {
     return audioSpecification;
   }
@@ -37,6 +52,11 @@ public class AudioPlayer extends Product implements MultimediaControl {
     this.mediaType = mediaType;
   }
 
+  /**
+   * Gets media type.
+   *
+   * @return the media type
+   */
   public String getMediaType() {
     return mediaType;
   }
@@ -57,6 +77,11 @@ public class AudioPlayer extends Product implements MultimediaControl {
     System.out.println("Previous");
   }
 
+  /**
+   * Shows the class info as a string.
+   *
+   * @return the class fields as a string
+   */
   public String toString() {
     return super.toString()
         + "\nSupported Audio Formats: "

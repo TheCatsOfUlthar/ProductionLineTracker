@@ -7,12 +7,20 @@
 
 package sample;
 
+/** The type Screen. */
 public class Screen implements ScreenSpec {
 
   private final String resolution;
   private final int refreshrate;
   private final int responsetime;
 
+  /**
+   * Instantiates a new Screen.
+   *
+   * @param resolution the resolution
+   * @param refreshrate the refreshrate
+   * @param responsetime the responsetime
+   */
   Screen(String resolution, int refreshrate, int responsetime) {
     this.resolution = resolution;
     this.refreshrate = refreshrate;
@@ -34,6 +42,11 @@ public class Screen implements ScreenSpec {
     return responsetime;
   }
 
+  /**
+   * Allows us to view the info stored in screen.
+   *
+   * @return the fields of Screen into a string
+   */
   public String toString() {
     return "\nScreen:\nResolution: "
         + resolution

@@ -8,11 +8,21 @@
 
 package sample;
 
+/** The type Movie player. */
 public class MoviePlayer extends Product implements MultimediaControl {
 
   private final Screen screen;
   private final MonitorType monitorType;
 
+  /**
+   * Instantiates a new Movie player.
+   *
+   * @param name the name
+   * @param manufacturer the manufacturer
+   * @param type the type
+   * @param screen the screen
+   * @param monitorType the monitor type
+   */
   /* Same thing for this itemtype in this constructor*/
   MoviePlayer(
       String name, String manufacturer, ItemType type, Screen screen, MonitorType monitorType) {

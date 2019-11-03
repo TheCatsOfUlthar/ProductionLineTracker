@@ -8,11 +8,27 @@
 
 package sample;
 
+/** The interface Screen spec. */
 interface ScreenSpec {
 
+  /**
+   * Gets resolution.
+   *
+   * @return the resolution
+   */
   String getResolution();
 
+  /**
+   * Gets refresh rate.
+   *
+   * @return the refresh rate
+   */
   int getRefreshRate();
 
+  /**
+   * Gets response time.
+   *
+   * @return the response time
+   */
   int getResponseTime();
 }

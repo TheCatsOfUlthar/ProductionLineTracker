@@ -6,6 +6,7 @@
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
+
 package sample;
 
 /** The type Product. */
@@ -23,6 +24,13 @@ public abstract class Product implements Item {
   /** The constant name. */
   private String name;
 
+  /**
+   * Instantiates a new Product.
+   *
+   * @param name the name
+   * @param manufacturer the manufacturer
+   * @param type the type
+   */
   Product(String name, String manufacturer, ItemType type) {
     this.name = name;
     this.manufacturer = manufacturer;
