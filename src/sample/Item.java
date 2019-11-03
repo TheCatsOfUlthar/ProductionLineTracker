@@ -1,5 +1,6 @@
 /*
- * This file is an interface which tells the classes that implement it which methods those classes must implement.
+ * This file is an interface which tells the classes that implement it which
+ * methods those classes must implement.
  *
  * @author Robert L. Kissinger
  * @version 1.1 Saturday, September 28th, 2019
@@ -8,7 +9,7 @@
 package sample;
 
 /** The interface Item. */
-public interface Item {
+interface Item {
 
   /**
    * Gets id.
@@ -20,9 +21,9 @@ public interface Item {
   /**
    * Sets name.
    *
-   * @param setName_p the set name p
+   * @param setName the set name p
    */
-  void setName(String setName_p);
+  void setName(String setName);
 
   /**
    * Gets name.
@@ -34,9 +35,9 @@ public interface Item {
   /**
    * Sets manufacturer.
    *
-   * @param setManufacturer_p the set manufacturer p
+   * @param setManufacturer the set manufacturer p
    */
-  void setManufacturer(String setManufacturer_p);
+  void setManufacturer(String setManufacturer);
 
   /**
    * Gets manufacturer.
@@ -44,4 +45,8 @@ public interface Item {
    * @return the manufacturer
    */
   String getManufacturer();
+
+  void setType(ItemType setType);
+
+  ItemType getType();
 }

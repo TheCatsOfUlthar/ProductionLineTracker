@@ -1,6 +1,8 @@
 /*
- * This file allows me to create constants for the type of items I will be storing into the database and product
- * collections. Additionally, I can use these constant to populate my choice-box in Controller.java.
+ * This file allows me to create constants for the type of items I
+ * will be storing into the database and product
+ * collections. Additionally, I can use these constant to populate
+ * my choice-box in Controller.java.
  *
  * @author Robert L. Kissinger
  * @version 1.1 Saturday, September 28th, 2019
@@ -11,7 +13,7 @@ package sample;
 /** The enum Item type. These constants have two variables, type and code. */
 public enum
     ItemType { // By creating an enumeration class, I can access constants from anywhere in my
-               // program.
+  // program.
   /** Audio item type. */
   AUDIO("Audio", "AU"), // CONSTANT 1
   /** Visual item type. */

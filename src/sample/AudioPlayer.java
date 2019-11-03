@@ -1,3 +1,11 @@
+/*
+ * This file is a blueprint to create AudioPlayer objects which inherit
+ * three fields from Product.
+ *
+ * @author Robert L. Kissinger
+ * @version 1.2 Saturday, November 2nd, 2019
+ */
+
 package sample;
 
 public class AudioPlayer extends Product implements MultimediaControl {
@@ -5,9 +13,14 @@ public class AudioPlayer extends Product implements MultimediaControl {
   private String audioSpecification;
   private String mediaType;
 
-  private AudioPlayer(
-      String name, String manufacturer, String audioSpecification, String mediaType) {
-    super(name, manufacturer);
+  AudioPlayer(
+      String name,
+      String manufacturer,
+      ItemType type,
+      String audioSpecification,
+      String mediaType) {
+    super(name, manufacturer, type);
+    setType(ItemType.AUDIO);
     setAudioSpecification(audioSpecification);
     setMediaType(mediaType);
   }
@@ -29,19 +42,19 @@ public class AudioPlayer extends Product implements MultimediaControl {
   }
 
   public void play() {
-    System.out.println("Playing...");
+    System.out.println("Playing");
   }
 
   public void stop() {
-    System.out.println("Stopped...");
+    System.out.println("Stopping");
   }
 
   public void next() {
-    System.out.println("Next...");
+    System.out.println("Next");
   }
 
   public void previous() {
-    System.out.println("Previous...");
+    System.out.println("Previous");
   }
 
   public String toString() {
@@ -50,16 +63,5 @@ public class AudioPlayer extends Product implements MultimediaControl {
         + audioSpecification
         + "\nSupported Playlist Formats: "
         + mediaType;
-  }
-
-  public static void main(String[] args) {
-    AudioPlayer newProduct =
-        new AudioPlayer(
-            "DP-X1A", "Onkyo", "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC", "M3U/PLS/WPL");
-    System.out.println(newProduct);
-    newProduct.play();
-    newProduct.stop();
-    newProduct.next();
-    newProduct.previous();
   }
 }

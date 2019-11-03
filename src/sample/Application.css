@@ -1,8 +1,29 @@
-.root{
-    -fx-background-color: #239872;
+.root {
+    -fx-body-color : #F5F5F5;
+    -fx-outer-border : #cecece;
+    -fx-border-color: #99ccff;
+    -fx-background-color: #ccccff;
 }
 
-.button{
-    -fx-font-size: 12pt;
-    -fx-background-color: #989898;
+.button,.menu-button,.toggle-button,.split-menu-button {
+    -fx-font-size: 14;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-pref-height: 30;
+    -fx-min-width: 30;
+}
+
+.button:pressed {
+    -fx-background-color: #e6e6e6;
+    -fx-border-color: #acacac;
+    -fx-effect: innershadow(gaussian, #adadad, 10, 0, 0, 3);
+}
+
+.label {
+    -fx-font-smoothing-type: gray;
+    -fx-font-weight: bold;
+}
+
+.tab:pressed {
+    -fx-effect: innershadow(gaussian, #b3ecff, 10, 0, 0, 3);
 }

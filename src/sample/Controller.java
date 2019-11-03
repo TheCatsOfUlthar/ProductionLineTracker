@@ -18,11 +18,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * This class controls the action events of my Scene Builder Controls and contains my database
@@ -34,53 +35,39 @@ public class Controller {
 
   private static final String JDBC_DRIVER = "org.h2.Driver"; // Path to my H2 Driver
   private static final String DB_URL = "jdbc:h2:./res/H2"; // Path to my DataBase URL
+  public TabPane tabpane;
+  private final List<Product> list = new ArrayList<>();
+  private final ObservableList<Product> data = FXCollections.observableArrayList(list);
 
   // fx:id's for my Controls under the Product Line tab.
   @FXML private TextField productName;
   @FXML private TextField productManufacturer;
   @FXML private ChoiceBox<String> productTypeBox;
-
-  // fx:id for my Control under the Produce tab.
+  @FXML private TextArea productionLogTextArea;
+  @FXML private ListView<Product> produceListView;
+  @FXML private TableView<Product> tableView;
+  @FXML private TableColumn<?, ?> column1 = new TableColumn<>("Name");
+  @FXML private TableColumn<?, ?> column2 = new TableColumn<>("Manufacturer");
+  @FXML private TableColumn<?, ?> column3 = new TableColumn<>("Type");
   @FXML private ComboBox<Integer> chooseQuantityBox;
 
-  /**
-   * When the Add Product Button is pressed, this method gets the information supplied in the text
-   * fields and combo box and stores it into three variables. The method then checks to make sure
-   * the variables aren't empty and then inserts the data into the database.
-   */
+  // Needs to store product to database
   @FXML
   public void addProductButton() {
 
-    /*
-    This is how I receive the information that the user enters into both text fields and
-    the choice box under Product Line.
-     */
+    String name = this.productName.getText();
+    String manufacturer = this.productManufacturer.getText();
+    String type = this.productTypeBox.getValue();
+    data.add(new Widget(name, manufacturer, ItemType.AUDIO));
 
-    String productName = this.productName.getText();
-    String productManufacturer = this.productManufacturer.getText();
-    String productType = this.productTypeBox.getValue();
-
-    Product item = new Product(null, null) {};
-    item.setName(productName);
-    item.setType(productType);
-    item.setManufacturer(productManufacturer);
-
-    ArrayList<Product> productLine = new ArrayList<>();
-    productLine.add(item);
-
-    // Here I am making sure that the user information entered wasn't empty.
-    // if (productName.isEmpty() || productManufacturer.isEmpty()) {
-    // System.out.println("You entered nothing. Try again.");
-    // If the input was correct, the data is concatenated into a SQL String Command.
-    // } else {
     String myString =
         "INSERT INTO Product(NAME, TYPE, MANUFACTURER) VALUES  "
             + "('"
-            + item.getName()
+            + name
             + "', '"
-            + item.getType()
+            + type
             + "', '"
-            + item.getManufacturer()
+            + manufacturer
             + "')";
     // Here I am initializing my DataBase.
     try {
@@ -96,12 +83,19 @@ public class Controller {
       e.printStackTrace();
     }
   }
-  // }
 
   /** This method handles events for the Record Production Button. */
   @FXML
   public void recordProductionButton() {
-    System.out.println("Record Production Button Pressed...");
+    produceListView.getSelectionModel().getSelectedItem();
+    chooseQuantityBox.getSelectionModel().getSelectedItem();
+
+    ProductionRecord pr =
+        new ProductionRecord(
+            produceListView.getSelectionModel().getSelectedItem(),
+            chooseQuantityBox.getSelectionModel().getSelectedIndex());
+
+    productionLogTextArea.setText(pr.toString());
   }
 
   /** Choice Box and Combo Box Controls. */
@@ -118,11 +112,15 @@ public class Controller {
     }
 
     productTypeBox.setValue("Audio");
-    chooseQuantityBox
-        .getItems()
-        .addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // The numbers in my combo box.
+    chooseQuantityBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     chooseQuantityBox.getSelectionModel().selectFirst();
     chooseQuantityBox.setEditable(
         true); // Allows the user to edit the field and enter their own number.
+
+    column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+    column2.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
+    column3.setCellValueFactory(new PropertyValueFactory<>("type"));
+    tableView.setItems(data);
+    produceListView.setItems(data);
   }
 }
