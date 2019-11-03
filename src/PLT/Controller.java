@@ -1,16 +1,3 @@
-/*
- * This file allows me to create action events from my Scene Builder controls.
- *
- * Controller.java assigns fx:id's to my Scene Builder controls and allows me to
- * create action events for the same controls through individual methods. It also
- * allows me to structure the controls, such as adding strings to choice boxes and
- * integers to combo boxes. Additionally, this file can insert user entered data from
- * text fields and choice boxes into a database.
- *
- * @author Robert L. Kissinger
- * @version 1.0 Saturday, September 21st, 2019
- */
-
 package PLT;
 
 import java.sql.Connection;
@@ -32,11 +19,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- * This class controls the action events of my Scene Builder Controls and contains my database
- * initialization.
+/*
+ * This file allows me to create action events from my Scene Builder controls.
+ *
+ * Controller.java assigns fx:id's to my Scene Builder controls and allows me to
+ * create action events for the same controls through individual methods. It also
+ * allows me to structure the controls, such as adding strings to choice boxes and
+ * integers to combo boxes. Additionally, this file can insert user entered data from
+ * text fields and choice boxes into a database.
  *
  * @author Robert L. Kissinger
+ * @version 1.0 Saturday, September 21st, 2019
  */
 public class Controller {
 
@@ -105,7 +98,7 @@ public class Controller {
             produceListView.getSelectionModel().getSelectedItem(),
             chooseQuantityBox.getSelectionModel().getSelectedIndex());
 
-    productionLogTextArea.setText(pr.toString());
+    productionLogTextArea.appendText(pr.toString() + "\n");
   }
 
   /** Choice Box and Combo Box Controls. */

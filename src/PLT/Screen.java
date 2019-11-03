@@ -1,13 +1,11 @@
+package PLT;
+
 /*
  * This file is a blueprint for the Screen that the MoviePlayer needs to implement.
  *
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
-
-package PLT;
-
-/** The type Screen. */
 public class Screen implements ScreenSpec {
 
   private final String resolution;

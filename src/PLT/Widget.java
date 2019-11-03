@@ -1,13 +1,11 @@
+package PLT;
+
 /*
  * This is a test class that I use when testing my system functions.
  *
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
-
-package PLT;
-
-/** The type Widget. */
 class Widget extends Product {
 
   /**

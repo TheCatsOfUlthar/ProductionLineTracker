@@ -1,3 +1,5 @@
+package PLT;
+
 /*
  * This file is an interface which tells the classes that implement it which
  * methods those classes must implement.
@@ -5,10 +7,6 @@
  * @author Robert L. Kissinger
  * @version 1.1 Saturday, September 28th, 2019
  */
-
-package PLT;
-
-/** The interface Item. */
 interface Item {
 
   /**

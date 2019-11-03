@@ -1,11 +1,3 @@
-/*
- * This file allows me to override my main method and instead load the PLTGUI.fxml
- * in order to use scene builder and javaFX.
- *
- * @author Robert L. Kissinger
- * @version 1.0 Saturday, September 21st, 2019
- */
-
 package PLT;
 
 import javafx.application.Application;
@@ -14,7 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/** The type Main. */
+/*
+ * This file allows me to override my main method and instead load the PLTGUI.fxml
+ * in order to use scene builder and javaFX.
+ *
+ * @author Robert L. Kissinger
+ * @version 1.0 Saturday, September 21st, 2019
+ */
 public class Main extends Application {
 
   /**

@@ -1,3 +1,5 @@
+package PLT;
+
 /*
  * This file is an abstract class that holds the base information for how each
  * kind of product sub-classed from it is characterized. We cannot instantiate
@@ -6,10 +8,6 @@
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
-
-package PLT;
-
-/** The type Product. */
 public abstract class Product implements Item {
 
   /** The constant id. */

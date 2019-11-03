@@ -1,3 +1,5 @@
+package PLT;
+
 /*
  * This file allows me to create constants for the type of items I
  * will be storing into the database and product
@@ -7,10 +9,6 @@
  * @author Robert L. Kissinger
  * @version 1.1 Saturday, September 28th, 2019
  */
-
-package PLT;
-
-/** The enum Item type. These constants have two variables, type and code. */
 public enum
     ItemType { // By creating an enumeration class, I can access constants from anywhere in my
   // program.

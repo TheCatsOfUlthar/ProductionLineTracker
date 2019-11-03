@@ -1,3 +1,7 @@
+package PLT;
+
+import java.util.Date;
+
 /*
  * This file allows us to record the production of each product we create.
  * The fields specify our individual products and we can use this class to
@@ -6,12 +10,6 @@
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
-
-package PLT;
-
-import java.util.Date;
-
-/** The type Production record. */
 class ProductionRecord {
 
   private int productionNumber;

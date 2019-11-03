@@ -1,3 +1,5 @@
+package PLT;
+
 /*
  * This file is the blueprint to create Movie Player Products.
  * Movie Player objects inherit from the abstract class Product.
@@ -5,10 +7,6 @@
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
-
-package PLT;
-
-/** The type Movie player. */
 public class MoviePlayer extends Product implements MultimediaControl {
 
   private final Screen screen;

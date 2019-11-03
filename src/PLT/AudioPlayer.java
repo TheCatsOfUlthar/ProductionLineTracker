@@ -1,3 +1,5 @@
+package PLT;
+
 /*
  * This file is a blueprint to create AudioPlayer objects which inherit
  * three fields from Product.
@@ -5,10 +7,6 @@
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
-
-package PLT;
-
-/** The type Audio player. */
 public class AudioPlayer extends Product implements MultimediaControl {
 
   private String audioSpecification;

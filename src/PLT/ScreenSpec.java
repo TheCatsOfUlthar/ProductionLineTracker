@@ -1,3 +1,5 @@
+package PLT;
+
 /*
  * This file is an interface that tells our Screen
  * class what methods it needs to implement.
@@ -5,10 +7,6 @@
  * @author Robert L. Kissinger
  * @version 1.2 Saturday, November 2nd, 2019
  */
-
-package PLT;
-
-/** The interface Screen spec. */
 interface ScreenSpec {
 
   /**
