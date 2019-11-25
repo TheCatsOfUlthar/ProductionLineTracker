@@ -1,5 +1,6 @@
 package PLT;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /*
@@ -13,12 +14,12 @@ import java.util.Date;
 class ProductionRecord {
 
   private int productionNumber;
-  private int productID;
+  private String productID;
   private String serialNumber;
   private final Date dateProduced;
 
   /** Instantiates a new Production record. */
-  ProductionRecord() {
+  ProductionRecord(int id) {
     this.productionNumber = 0;
     this.serialNumber = "0";
     dateProduced = new Date();
@@ -31,11 +32,11 @@ class ProductionRecord {
    * @param productID the product id
    * @param serialNumber the serial number
    */
-  ProductionRecord(int productionNumber, int productID, String serialNumber) {
+  ProductionRecord(int productionNumber, String productID, String serialNumber, Date dateProduced) {
     this.productionNumber = productionNumber;
     this.productID = productID;
     this.serialNumber = serialNumber;
-    this.dateProduced = new Date(getDateProduced().getTime());
+    this.dateProduced = new Date(dateProduced.getTime());
   }
 
   /**
@@ -45,18 +46,14 @@ class ProductionRecord {
    * @param itemCount the item count
    */
   ProductionRecord(Product product, int itemCount) {
-    setSerialNumber(
-        product.getManufacturer().substring(0, 3)
-            + product.getType().getCode()
-            + String.format("%05d", itemCount));
     dateProduced = new Date();
   }
 
   @Override
   public String toString() {
-    return "Prod. Num: "
+    return "Prod. Num:\t"
         + productionNumber
-        + " Product ID: "
+        + "\tProduct ID:\t"
         + productID
         + " Serial Num: "
         + serialNumber
@@ -87,17 +84,18 @@ class ProductionRecord {
    *
    * @return the product id
    */
-  public int getProductID() {
+  String getProductID() {
     return productID;
   }
 
   /**
    * Sets product id.
    *
-   * @param productID the product id
+   * @param product the product id
    */
-  public void setProductID(int productID) {
-    this.productID = productID;
+  String setProductID(Product product) {
+    this.productID = product.getName();
+    return productID;
   }
 
   /**
@@ -105,15 +103,19 @@ class ProductionRecord {
    *
    * @return the serial number
    */
-  public String getSerialNumber() {
+  String getSerialNumber() {
     return serialNumber;
   }
 
-  private void setSerialNumber(String serialNumber) {
-    this.serialNumber = serialNumber;
+  String setSerialNumber(Product product, int itemCount) {
+    this.serialNumber =
+        product.getManufacturer().substring(0, 3)
+            + product.getType().getCode()
+            + String.format("%05d", itemCount);
+    return serialNumber;
   }
 
   private Date getDateProduced() {
-    return new Date(dateProduced.getTime());
+    return new Date();
   }
 }
