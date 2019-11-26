@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /*
- * This file allows me to override my main method and instead load the PLTGUI.fxml
+ * This file allows me to override my main method and instead load the pltgui.fxml
  * in order to use scene builder and javaFX.
  *
  * @author Robert L. Kissinger
@@ -16,14 +16,14 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
   /**
-   * This method overrides main and loads my PLTGUI.fxml file.
+   * This method overrides main and loads my pltgui.fxml file.
    *
    * @param primaryStage Created by the platform and passed to the start method.
    * @throws Exception Handed to Java runtime to prevent exceptional events.
    */
   @Override
   public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("PLTGUI.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("pltgui.fxml"));
     primaryStage.setTitle("Production Line Tracker");
     // primaryStage.setScene(new Scene(root, 700, 400));
     Scene scene = new Scene(root, 600, 400);

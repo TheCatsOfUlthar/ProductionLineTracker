@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file is a blueprint for the Screen that the MoviePlayer needs to implement.

@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file tells my product subclasses which methods they must implement.

@@ -1,13 +1,13 @@
-package PLT;
+package plt;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Employee {
+class Employee {
 
-  private String name;
+  private final String name;
   private String username;
-  private String password;
+  private final String password;
   private String email;
 
   Employee(String name, String password) {
@@ -27,7 +27,7 @@ public class Employee {
   }
 
   private boolean checkName(String name) {
-    String pattern = "[A-Z]\\w+\\s[A-Z]\\w+";
+    String pattern = "[A-Za-z]\\w+\\s[A-Za-z]\\w+";
     return name.matches(pattern);
   }
 
@@ -67,6 +67,18 @@ public class Employee {
 
   String getName() {
     return this.name;
+  }
+
+  String getUsername() {
+    return this.username;
+  }
+
+  String getPassword() {
+    return this.password;
+  }
+
+  String getEmail() {
+    return this.email;
   }
 
   public static void main(String[] args) {

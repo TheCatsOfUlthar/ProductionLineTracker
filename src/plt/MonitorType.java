@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file allows me to have the two monitor types as constants

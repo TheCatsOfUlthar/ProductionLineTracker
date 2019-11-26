@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file is an interface which tells the classes that implement it which

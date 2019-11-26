@@ -1,6 +1,5 @@
-package PLT;
+package plt;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 /*

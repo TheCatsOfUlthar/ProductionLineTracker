@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file is an abstract class that holds the base information for how each

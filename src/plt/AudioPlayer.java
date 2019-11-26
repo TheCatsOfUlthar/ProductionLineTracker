@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file is a blueprint to create AudioPlayer objects which inherit

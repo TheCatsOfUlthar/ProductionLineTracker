@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This is a test class that I use when testing my system functions.

@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file allows me to create constants for the type of items I

@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file is the blueprint to create Movie Player Products.

@@ -1,4 +1,4 @@
-package PLT;
+package plt;
 
 /*
  * This file is an interface that tells our Screen
