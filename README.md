@@ -107,6 +107,6 @@ In addition to the ability to record production, the software also needs the abi
 
 ![Class Diagram](res/pb6.png)
 
-**Project Database Visualization;**
+**Project Database Visualization:**
 
 ![Database Visualization](res/pb7.png)
