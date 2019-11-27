@@ -83,32 +83,32 @@ In addition to the ability to record production, the software also needs the abi
 
 **Product Box Gif:**
 
-![Product Box Gif](docs/Product_Box_Gif.gif)
+![Product Box Gif](pictures/Product_Box_Gif.gif)
 
 **Home Screen:**
 
-![Home Screen](docs/pb1.png)
+![Home Screen](pictures/pb1.png)
 
 **User Info Screen:**
 
-![User Screen](docs/pb2.png)
+![User Screen](pictures/pb2.png)
 
 **Add Product Screen:**
 
-![Product Screen](docs/pb3.png)
+![Product Screen](pictures/pb3.png)
 
 **Create Production Log Screen:**
 
-![Production Screen](docs/pb4.png)
+![Production Screen](pictures/pb4.png)
 
 **Production Log Screen:**
 
-![Production Log Screen](docs/pb5.png)
+![Production Log Screen](pictures/pb5.png)
 
 **Project Class Diagram:**
 
-![Class Diagram](docs/pb6.png)
+![Class Diagram](pictures/pb6.png)
 
 **Project Database Visualization:**
 
-![Database Visualization](docs/pb7.png)
+![Database Visualization](pictures/pb7.png)
