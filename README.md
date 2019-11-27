@@ -1,7 +1,7 @@
 # **Robert L. Kissinger's**
 # **Product Box: Production Line Tracker:** :rocket:
 
-[JavaDocs](/docs/JavaDocs/index.html)
+[JavaDocs](https://thecatsofulthar.github.io/ProductionLineTracker/)
 
 **Scenario:**
 
