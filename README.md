@@ -1,6 +1,7 @@
-__Problem Statement:__
+# **Robert L. Kissinger's**
+# **Product Box: Production Line Tracker:** :rocket:
 
-*Scenario:*
+**Scenario:**
 
 You have been hired to create software for a media player production facility that will keep track of what products are produced. 
 
@@ -75,3 +76,19 @@ In addition to the ability to record production, the software also needs the abi
             
     VII. Timelines (a breakdown of the Product Backlog into time-bound smaller, more detailed tasks in Sprint Backlogs)
         1. Three 5-week sprints, detailed below.
+
+# **Photos of Product Box:**
+
+![Home Screen](res/pb1.png)
+
+![User Screen](res/pb2.png)
+
+![Product Screen](res/pb3.png)
+
+![Production Screen](res/pb4.png)
+
+![Production Log Screen](res/pb5.png)
+
+![Class Diagram](res/pb6.png)
+
+![Database Visualization](res/pb7.png)
