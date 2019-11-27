@@ -26,6 +26,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class Controller {
 
   private static final String JDBC_DRIVER = "org.h2.Driver"; // Path to my H2 Driver
+  private static final String destination = "/Users/robertkissinger/OneDrive - Florida Gulf Coast "
+          + "University/Projects/ProductionLineTracker/res/";
 
   /** The Tabpane. */
   public TabPane tabpane;
@@ -116,8 +118,8 @@ public class Controller {
   }
 
   /**
-   * I think this method is beautiful. It uses a ternary operator return
-   * statement to recursively reverse the characters in a string.
+   * I think this method is beautiful. It uses a ternary operator return statement to recursively
+   * reverse the characters in a string.
    *
    * @param id is the String you want reversed.
    */
@@ -134,9 +136,7 @@ public class Controller {
     try {
       Properties properties = new Properties();
       properties.load(
-          new FileInputStream(
-              "/Users/robertkissinger/OneDrive - Florida Gulf Coast "
-                  + "University/Projects/ProductionLineTracker/res/config.properties"));
+          new FileInputStream(destination + "config.properties"));
 
       String user = properties.getProperty("db.username");
       String pass = properties.getProperty("db.password");
@@ -154,10 +154,8 @@ public class Controller {
   }
 
   /**
-   * This method is executed when the login label is pressed
-   * from the beginning screen upon program start. It essentially
-   * sets the visibility of certain scene-builder objects to true
-   * or false.
+   * This method is executed when the login label is pressed from the beginning screen upon program
+   * start. It essentially sets the visibility of certain scene-builder objects to true or false.
    */
   public void accessLoginPressed() {
     name.setVisible(false);
@@ -170,9 +168,8 @@ public class Controller {
   }
 
   /**
-   * This method is executed when the create account label is pressed
-   * from the beginning screen upon program start. It utilizes the same
-   * visibility concept as stated above.
+   * This method is executed when the create account label is pressed from the beginning screen upon
+   * program start. It utilizes the same visibility concept as stated above.
    */
   public void accessCreateAccountPressed() {
     userLogin.setVisible(false);
@@ -188,12 +185,11 @@ public class Controller {
   }
 
   /**
-   * This method fist gets the user input of name and password from the text
-   * and password containers and checks to see if the input is null. If not true,
-   * then an employee account is created and saved to the employee list. Finally,
-   * it iterates through the employee list, finds the employee with the specific name
-   * and gets its generated username and displays it so the user can then login with
-   * it.
+   * This method fist gets the user input of name and password from the text and password containers
+   * and checks to see if the input is null. If not true, then an employee account is created and
+   * saved to the employee list. Finally, it iterates through the employee list, finds the employee
+   * with the specific name and gets its generated username and displays it so the user can then
+   * login with it.
    */
   public void createAccountPressed() {
     String personsName = name.getText();
@@ -221,10 +217,9 @@ public class Controller {
   }
 
   /**
-   * This method checks to see if entered info is null. If not true,
-   * the employee list is searched for the entered username and password.
-   * If a match is found, te user is logged into the system and set as
-   * active.
+   * This method checks to see if entered info is null. If not true, the employee list is searched
+   * for the entered username and password. If a match is found, te user is logged into the system
+   * and set as active.
    */
   public void loginPressed() {
     String personsUsername = userLogin.getText();
@@ -244,12 +239,11 @@ public class Controller {
   }
 
   /**
-   * Once the user has been found, the Employee object is passed into
-   * this method so that the employees info can be displayed on the homescreen.
-   * The employee can now access the other tabs for production.
+   * Once the user has been found, the Employee object is passed into this method so that the
+   * employees info can be displayed on the home-screen. The employee can now access the other tabs
+   * for production.
    *
-   * @param employee is an Employee object that contains the active users
-   *                 information.
+   * @param employee is an Employee object that contains the active users information.
    */
   private void setActiveUser(Employee employee) {
     identifier1.setText(employee.getName());
@@ -274,9 +268,8 @@ public class Controller {
   }
 
   /**
-   * When the logout button is pressed, this method is called and
-   * returns the user to the login screen and sets the production tabs
-   * to disabled.
+   * When the logout button is pressed, this method is called and returns the user to the login
+   * screen and sets the production tabs to disabled.
    */
   public void logoutUser() {
     identifier1.setVisible(false);
@@ -295,23 +288,22 @@ public class Controller {
   }
 
   /**
-   * This method was supposed to check the employee list for duplicates
-   * but I couldn't get it working. Check out that lambda expression though ;-)
+   * This method was supposed to check the employee list for duplicates but I couldn't get it
+   * working. Check out that lambda expression though ;-)
    *
    * @param list the employee list that contains employees.
    * @param name the name to match to duplicates within list.
    */
-    private boolean containsName(final List<Employee> list, final String name) {
-      return list.stream().anyMatch(o -> o.getName().equals(name));
-    }
+  private boolean containsName(final List<Employee> list, final String name) {
+    return list.stream().anyMatch(o -> o.getName().equals(name));
+  }
 
   /**
-   * This method gets the input from the name, manufacturer and type fields,
-   * saves them to a SQL String query, checks the fields to make sure they're
-   * not null, then sends myString into the call to insertToDB and creates a
-   * product object in a switch statement that has cases based on the saved
-   * ItemType enumeration from the input. This object will be saved into the
-   * product list upon program start.
+   * This method gets the input from the name, manufacturer and type fields, saves them to a SQL
+   * String query, checks the fields to make sure they're not null, then sends myString into the
+   * call to insertToDB and creates a product object in a switch statement that has cases based on
+   * the saved ItemType enumeration from the input. This object will be saved into the product list
+   * upon program start.
    */
   @FXML
   public void addProductButton() {
@@ -345,6 +337,8 @@ public class Controller {
         case ("Visual Mobile"):
           productListData.add(new Widget(name, manufacturer, ItemType.VISUALMOBILE));
           break;
+        default:
+          System.out.println("The cake is a lie.");
       }
     } else {
       productLineBlankLabel.setVisible(true);
@@ -352,18 +346,16 @@ public class Controller {
   }
 
   /**
-   * This method retrieves all the information from the product database table
-   * and saves into a ResultSet. The ResultSet is then iterated through and retrieves
-   * all of the product objects saved by the user. It then populates the product list
-   * with all of these objects upon program start.
+   * This method retrieves all the information from the product database table and saves into a
+   * ResultSet. The ResultSet is then iterated through and retrieves all of the product objects
+   * saved by the user. It then populates the product list with all of these objects upon program
+   * start.
    */
   private void addProductsToDataList() {
     try {
       Properties properties = new Properties();
       properties.load(
-          new FileInputStream(
-              "/Users/robertkissinger/OneDrive - Florida Gulf Coast "
-                  + "University/Projects/ProductionLineTracker/res/config.properties"));
+          new FileInputStream(destination + "config.properties"));
       String user = properties.getProperty("db.username");
       String pass = properties.getProperty("db.password");
       String url = properties.getProperty("db.url");
@@ -394,6 +386,8 @@ public class Controller {
           case (3):
             productListData.add(new Widget(name, manufacturer, ItemType.VISUALMOBILE));
             break;
+          default:
+            System.out.println("The cake is a lie.");
         }
       }
       conn.close();
@@ -405,9 +399,9 @@ public class Controller {
   }
 
   /**
-   * This method takes a selected product and number and creates a new
-   * production record with them along with the time the production record was created.
-   * It then saves the production record to the database.
+   * This method takes a selected product and number and creates a new production record with them
+   * along with the time the production record was created. It then saves the production record to
+   * the database.
    */
   @FXML
   public void recordProductionButton() {
@@ -439,17 +433,14 @@ public class Controller {
   }
 
   /**
-   * This method retrieves a ResultSet from the production list database table,
-   * iterates through the ResultSet and saves each of the production records
-   * into a production record list which is then used to populate the production log
-   * upon program start.
+   * This method retrieves a ResultSet from the production list database table, iterates through the
+   * ResultSet and saves each of the production records into a production record list which is then
+   * used to populate the production log upon program start.
    */
   private void addProductionRecordToDataList() {
     try {
       InputStream input =
-          new FileInputStream(
-              "/Users/robertkissinger/OneDrive - Florida Gulf Coast "
-                  + "University/Projects/ProductionLineTracker/res/config.properties");
+          new FileInputStream(destination + "config.properties");
       Properties properties = new Properties();
       properties.load(input);
       String user = properties.getProperty("db.username");
@@ -470,23 +461,22 @@ public class Controller {
 
         productionRecordListData.add(new ProductionRecord(productionNum, productId, serialNum, ts));
       }
+      conn.close();
+      stmt.close();
     } catch (SQLException | IOException | ClassNotFoundException e) {
       e.printStackTrace();
     }
   }
 
   /**
-   * I used this main method to generate the config.properties file and
-   * save my database information to it. It also calls the reverseString() method
-   * to partially encrypt the file.
+   * I used this main method to generate the config.properties file and save my database information
+   * to it. It also calls the reverseString() method to partially encrypt the file.
    *
    * @param args default parameter.
    */
   public static void main(String[] args) {
     try (OutputStream outputStream =
-        new FileOutputStream(
-            "/Users/robertkissinger/OneDrive - Florida Gulf Coast "
-                + "University/Projects/ProductionLineTracker/res/config.properties")) {
+        new FileOutputStream(destination + "config.properties")) {
       Properties properties = new Properties();
       properties.setProperty("db.url", "jdbc:h2:./res/H2");
       properties.setProperty("db.username", "rkissinger");
