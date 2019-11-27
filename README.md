@@ -77,7 +77,11 @@ In addition to the ability to record production, the software also needs the abi
     VII. Timelines (a breakdown of the Product Backlog into time-bound smaller, more detailed tasks in Sprint Backlogs)
         1. Three 5-week sprints, detailed below.
 
-# **Photos of Product Box:**
+# **Visuals of Product Box:**
+
+**Product Box Gif:**
+
+![Product Box Gif](res/Product_Box_Gif.gif)
 
 **Home Screen:**
 
