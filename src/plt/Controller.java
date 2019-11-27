@@ -30,6 +30,7 @@ public class Controller {
   /** The Tabpane. */
   public TabPane tabpane;
 
+  // These are my lists that the database populates upon program initialization.
   private final List<Product> productList = new ArrayList<>();
   private final ObservableList<Product> productListData =
       FXCollections.observableArrayList(productList);
@@ -38,11 +39,14 @@ public class Controller {
   private final ObservableList<ProductionRecord> productionRecordListData =
       FXCollections.observableArrayList(productionRecordList);
 
+  // This one is not connected to the database. It exists so that an employee
+  //  account can be created upon program start. It is temporary and gets erased
+  //   each time the program ends.
   private final List<Employee> employeeList = new ArrayList<>();
   private final ObservableList<Employee> employeeListData =
       FXCollections.observableArrayList(employeeList);
 
-  // fx:id's for my Controls under the Product Line tab.
+  // Declarations for all of the containers and controls utilized in scene builder.
   @FXML private TextField productName;
   @FXML private TextField productManufacturer;
   @FXML private ChoiceBox<String> productTypeBox;
@@ -76,7 +80,10 @@ public class Controller {
   @FXML private Tab tab2;
   @FXML private Tab tab3;
 
-  /** Choice Box and Combo Box Controls. */
+  /**
+   * This code runs each time the program is started and mainly functions to fill each container in
+   * scene-builder with the database info.
+   */
   @FXML
   private void initialize() {
     // Choice box control.
@@ -96,6 +103,7 @@ public class Controller {
     column2.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
     column3.setCellValueFactory(new PropertyValueFactory<>("type"));
 
+    // This call fills the product list.
     addProductsToDataList();
 
     tableView.setItems(productListData);
@@ -107,11 +115,21 @@ public class Controller {
     }
   }
 
-  // I think this method is beautiful.
+  /**
+   * I think this method is beautiful. It uses a ternary operator return
+   * statement to recursively reverse the characters in a string.
+   *
+   * @param id is the String you want reversed.
+   */
   private static String reverseString(String id) {
     return id.isEmpty() ? id : reverseString(id.substring(1)) + id.charAt(0);
   }
 
+  /**
+   * This method can be called when inserting info to the database to prevent writing extra code.
+   *
+   * @param myString is the SQL String query.
+   */
   private void insertToDB(String myString) {
     try {
       Properties properties = new Properties();
@@ -135,7 +153,12 @@ public class Controller {
     }
   }
 
-  /** Access login pressed. */
+  /**
+   * This method is executed when the login label is pressed
+   * from the beginning screen upon program start. It essentially
+   * sets the visibility of certain scene-builder objects to true
+   * or false.
+   */
   public void accessLoginPressed() {
     name.setVisible(false);
     password.setVisible(false);
@@ -146,7 +169,11 @@ public class Controller {
     accountCreated.setVisible(false);
   }
 
-  /** Access create account pressed. */
+  /**
+   * This method is executed when the create account label is pressed
+   * from the beginning screen upon program start. It utilizes the same
+   * visibility concept as stated above.
+   */
   public void accessCreateAccountPressed() {
     userLogin.setVisible(false);
     password.setVisible(false);
@@ -160,7 +187,14 @@ public class Controller {
     accountCreated.setVisible(true);
   }
 
-  /** Create account pressed. */
+  /**
+   * This method fist gets the user input of name and password from the text
+   * and password containers and checks to see if the input is null. If not true,
+   * then an employee account is created and saved to the employee list. Finally,
+   * it iterates through the employee list, finds the employee with the specific name
+   * and gets its generated username and displays it so the user can then login with
+   * it.
+   */
   public void createAccountPressed() {
     String personsName = name.getText();
     String personsPassword = password.getText();
@@ -186,7 +220,12 @@ public class Controller {
     }
   }
 
-  /** Login pressed. */
+  /**
+   * This method checks to see if entered info is null. If not true,
+   * the employee list is searched for the entered username and password.
+   * If a match is found, te user is logged into the system and set as
+   * active.
+   */
   public void loginPressed() {
     String personsUsername = userLogin.getText();
     String personsPassword = password.getText();
@@ -194,6 +233,7 @@ public class Controller {
       for (Employee employee : employeeListData) {
         if (employee.getUsername().equals(personsUsername)
             && employee.getPassword().equals(personsPassword)) {
+          // Setting the user active by calling this method.
           setActiveUser(employee);
         }
       }
@@ -203,10 +243,18 @@ public class Controller {
     }
   }
 
+  /**
+   * Once the user has been found, the Employee object is passed into
+   * this method so that the employees info can be displayed on the homescreen.
+   * The employee can now access the other tabs for production.
+   *
+   * @param employee is an Employee object that contains the active users
+   *                 information.
+   */
   private void setActiveUser(Employee employee) {
-    identifier1.setText("Name:\t" + employee.getName());
-    identifier2.setText("Username:\t" + employee.getUsername());
-    identifier3.setText("Email:\t" + employee.getEmail());
+    identifier1.setText(employee.getName());
+    identifier2.setText(employee.getUsername());
+    identifier3.setText(employee.getEmail());
     identifier1.setVisible(true);
     identifier2.setVisible(true);
     identifier3.setVisible(true);
@@ -225,7 +273,11 @@ public class Controller {
     tab3.setDisable(false);
   }
 
-  /** Logout user. */
+  /**
+   * When the logout button is pressed, this method is called and
+   * returns the user to the login screen and sets the production tabs
+   * to disabled.
+   */
   public void logoutUser() {
     identifier1.setVisible(false);
     identifier2.setVisible(false);
@@ -242,14 +294,25 @@ public class Controller {
     tab3.setDisable(true);
   }
 
-  // --Commented out by Inspection START (11/25/19, 8:23 PM):
-  //  private boolean containsName(final List<Employee> list, final String name) {
-  //    return list.stream().anyMatch(o -> o.getName().equals(name));
-  //  }
-  // --Commented out by Inspection STOP (11/25/19, 8:23 PM)
+  /**
+   * This method was supposed to check the employee list for duplicates
+   * but I couldn't get it working. Check out that lambda expression though ;-)
+   *
+   * @param list the employee list that contains employees.
+   * @param name the name to match to duplicates within list.
+   */
+    private boolean containsName(final List<Employee> list, final String name) {
+      return list.stream().anyMatch(o -> o.getName().equals(name));
+    }
 
-  /** Add product button. */
-  // Needs to store product to database
+  /**
+   * This method gets the input from the name, manufacturer and type fields,
+   * saves them to a SQL String query, checks the fields to make sure they're
+   * not null, then sends myString into the call to insertToDB and creates a
+   * product object in a switch statement that has cases based on the saved
+   * ItemType enumeration from the input. This object will be saved into the
+   * product list upon program start.
+   */
   @FXML
   public void addProductButton() {
 
@@ -258,7 +321,7 @@ public class Controller {
     String type = this.productTypeBox.getValue();
 
     String myString =
-        "INSERT INTO PRODUCT(NAME, TYPE, MANUFACTURER) VALUES  "
+        "INSERT INTO PRODUCT(NAME, TYPE, MANUFACTURER) VALUES "
             + "('"
             + name
             + "', '"
@@ -288,6 +351,12 @@ public class Controller {
     }
   }
 
+  /**
+   * This method retrieves all the information from the product database table
+   * and saves into a ResultSet. The ResultSet is then iterated through and retrieves
+   * all of the product objects saved by the user. It then populates the product list
+   * with all of these objects upon program start.
+   */
   private void addProductsToDataList() {
     try {
       Properties properties = new Properties();
@@ -335,7 +404,11 @@ public class Controller {
     }
   }
 
-  /** This method handles events for the Record Production Button. */
+  /**
+   * This method takes a selected product and number and creates a new
+   * production record with them along with the time the production record was created.
+   * It then saves the production record to the database.
+   */
   @FXML
   public void recordProductionButton() {
 
@@ -356,7 +429,6 @@ public class Controller {
             + "', '"
             + ts
             + "')";
-    // Here I am initializing my DataBase.
     insertToDB(myString);
     productionLogTextArea.clear();
     productionRecordListData.clear();
@@ -366,6 +438,12 @@ public class Controller {
     }
   }
 
+  /**
+   * This method retrieves a ResultSet from the production list database table,
+   * iterates through the ResultSet and saves each of the production records
+   * into a production record list which is then used to populate the production log
+   * upon program start.
+   */
   private void addProductionRecordToDataList() {
     try {
       InputStream input =
@@ -398,9 +476,11 @@ public class Controller {
   }
 
   /**
-   * The entry point of application.
+   * I used this main method to generate the config.properties file and
+   * save my database information to it. It also calls the reverseString() method
+   * to partially encrypt the file.
    *
-   * @param args the input arguments
+   * @param args default parameter.
    */
   public static void main(String[] args) {
     try (OutputStream outputStream =

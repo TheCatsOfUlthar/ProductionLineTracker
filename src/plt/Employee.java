@@ -3,6 +3,16 @@ package plt;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*
+ * This file allows me to create employee objects from the Employee blueprint.
+ *
+ * This class is used when creating user accounts and logging into the program.
+ * It automatically generates a username and email for each object based on the
+ * users first and last name.
+ *
+ * @author Robert L. Kissinger
+ * @version 1.3 Tuesday, November 26th, 2019
+ */
 class Employee {
 
   private final String name;
